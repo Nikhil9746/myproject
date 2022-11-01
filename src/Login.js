@@ -13,32 +13,19 @@ import {
 } from "react-native";
 
 export default class Login extends Component{
-  constructor(){
-    super();
-    this.state={
-      welcome:'Welcome to react native'
-    }
-  }
-  updatetext(){
-    this.setState({
-      welcome:'Enter valid credential'
-    })
-  }
-
-
   render(){
     return(
       <View style={styles.container}>
         <ImageBackground source = {require('./assets/bg.jpg')} style={styles.imagebg}>
         <Image source = {require('./assets/icon.png')} style={styles.imageicon}/>
         
-        <Text style={styles.textstyle}>{this.state.welcome}</Text>
+        <Text style={styles.textstyle}>welcome</Text>
         <TextInput style={styles.inputtext} 
         placeholder='User Name'></TextInput>
         <TextInput style={styles.inputtext} 
         placeholder='Password'></TextInput>
         <TouchableHighlight style={styles.buttonstyle}
-        onPress={()=>this.updatetext()}><Text>login</Text></TouchableHighlight> 
+        onPress={()=>this.props.navigation.navigate('Drawer')}><Text>login</Text></TouchableHighlight> 
         <View><Text>New user !</Text><TouchableHighlight
         onPress={()=> this.props.navigation.navigate('Register')}><Text style={{color:"green",fontWeight:'bold'}} >  Register</Text></TouchableHighlight></View>      
         
